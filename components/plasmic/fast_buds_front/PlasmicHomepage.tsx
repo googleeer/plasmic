@@ -68,6 +68,7 @@ export type PlasmicHomepage__OverridesType = {
   hero?: p.Flex<"section">;
   img?: p.Flex<typeof p.PlasmicImg>;
   h1?: p.Flex<"h1">;
+  h4?: p.Flex<"h4">;
   productCollection?: p.Flex<typeof ProductCollection>;
   productTextField?: p.Flex<typeof ProductTextField>;
   productMedia?: p.Flex<typeof ProductMedia>;
@@ -372,7 +373,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.h1
               )}
             >
-              {"Welcome to your first page."}
+              {"Fast Buds Apparel Store"}
             </h1>
             <div
               className={classNames(
@@ -382,22 +383,62 @@ function PlasmicHomepage__RenderFunc(props: {
               )}
             >
               <React.Fragment>
-                <React.Fragment>
-                  {
-                    "If you haven't already done so, go back and learn the basics by going through the Plasmic Levels tutorial.\n\nIt's always easier to start from examples! Add a new page using a template\u2014do this from the list of pages in the top toolbar.\n\nOr press the big blue + button to start inserting items into this page.\n\nIntegrate this project into your codebase\u2014press the "
-                  }
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"Code"}
-                </span>
-                <React.Fragment>
-                  {
-                    " button in the top right and follow the quickstart instructions.\n\nJoin our Slack community (icon in bottom left) for help any time."
-                  }
-                </React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <h3
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h3,
+                      projectcss.__wab_text,
+                      sty.h3__ywjEq
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
+                      {
+                        <h4
+                          data-plasmic-name={"h4"}
+                          data-plasmic-override={overrides.h4}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h4,
+                            projectcss.__wab_text,
+                            sty.h4
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              {
+                                "Our merchandise is designed to be worn proudly and to shout loudly to the world about what you love!  With this 100% hemp Fast Buds cap, you can show that you only grow the best."
+                              }
+                            </span>
+                            <React.Fragment>{"\n"}</React.Fragment>
+                            {
+                              <h3
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h3,
+                                  projectcss.__wab_text,
+                                  sty.h3__i2PeT
+                                )}
+                              >
+                                {""}
+                              </h3>
+                            }
+                            <React.Fragment>{""}</React.Fragment>
+                          </React.Fragment>
+                        </h4>
+                      }
+                      <React.Fragment>{""}</React.Fragment>
+                    </React.Fragment>
+                  </h3>
+                }
+                <React.Fragment>{""}</React.Fragment>
               </React.Fragment>
             </div>
             <ProductCollection
@@ -493,6 +534,7 @@ const PlasmicDescendants = {
     "hero",
     "img",
     "h1",
+    "h4",
     "productCollection",
     "productTextField",
     "productMedia",
@@ -502,6 +544,7 @@ const PlasmicDescendants = {
     "hero",
     "img",
     "h1",
+    "h4",
     "productCollection",
     "productTextField",
     "productMedia",
@@ -509,6 +552,7 @@ const PlasmicDescendants = {
   ],
   img: ["img"],
   h1: ["h1"],
+  h4: ["h4"],
   productCollection: [
     "productCollection",
     "productTextField",
@@ -527,6 +571,7 @@ type NodeDefaultElementType = {
   hero: "section";
   img: typeof p.PlasmicImg;
   h1: "h1";
+  h4: "h4";
   productCollection: typeof ProductCollection;
   productTextField: typeof ProductTextField;
   productMedia: typeof ProductMedia;
@@ -596,6 +641,7 @@ export const PlasmicHomepage = Object.assign(
     hero: makeNodeComponent("hero"),
     img: makeNodeComponent("img"),
     h1: makeNodeComponent("h1"),
+    h4: makeNodeComponent("h4"),
     productCollection: makeNodeComponent("productCollection"),
     productTextField: makeNodeComponent("productTextField"),
     productMedia: makeNodeComponent("productMedia"),

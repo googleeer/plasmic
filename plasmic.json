@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -39,7 +39,8 @@
           "displayName": "plasmic-commerce-shopify-provider",
           "componentImportPath": "@plasmicpkgs/commerce-shopify"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "xp1p7dmg329XVLHyuEUxD2",
@@ -155,7 +156,8 @@
           "displayName": "plasmic-commerce-cart-provider",
           "componentImportPath": "@plasmicpkgs/commerce"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "aibJ3fYdg3gA8bsukWWV8J",
