@@ -205,6 +205,21 @@
           "id": "TlLaNAw8n1kO",
           "name": "Icon38Icon",
           "moduleFilePath": "plasmic/fast_buds_front/icons/PlasmicIcon__Icon38.tsx"
+        },
+        {
+          "id": "ZT2Cje1C1JYo",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/fast_buds_front/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "OW7cAzPo7StY",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/fast_buds_front/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "aRlRgl7fc4At",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/fast_buds_front/icons/PlasmicIcon__Icon3.tsx"
         }
       ],
       "images": [
