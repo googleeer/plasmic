@@ -71,8 +71,7 @@ export type PlasmicHomepage__OverridesType = {
   header?: p.Flex<"header">;
   hero?: p.Flex<"section">;
   h1?: p.Flex<"h1">;
-  h4?: p.Flex<"h4">;
-  h3?: p.Flex<"h3">;
+  p?: p.Flex<"p">;
   productCollection?: p.Flex<typeof ProductCollection>;
   productTextField?: p.Flex<typeof ProductTextField>;
   productMedia?: p.Flex<typeof ProductMedia>;
@@ -381,57 +380,20 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {"Fast Buds Apparel Store"}
             </h1>
-            <div
+            <p
+              data-plasmic-name={"p"}
+              data-plasmic-override={overrides.p}
               className={classNames(
                 projectcss.all,
+                projectcss.p,
                 projectcss.__wab_text,
-                sty.text__gn5A5
+                sty.p
               )}
             >
-              <React.Fragment>
-                <React.Fragment>{""}</React.Fragment>
-                {
-                  <h4
-                    data-plasmic-name={"h4"}
-                    data-plasmic-override={overrides.h4}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h4,
-                      projectcss.__wab_text,
-                      sty.h4
-                    )}
-                  >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ color: "#FFFFFF" }}
-                      >
-                        {
-                          "Our merchandise is designed to be worn proudly and to shout loudly to the world about what you love!  With this 100% hemp Fast Buds cap, you can show that you only grow the best."
-                        }
-                      </span>
-                      <React.Fragment>{"\n"}</React.Fragment>
-                      {
-                        <h3
-                          data-plasmic-name={"h3"}
-                          data-plasmic-override={overrides.h3}
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h3,
-                            projectcss.__wab_text,
-                            sty.h3
-                          )}
-                        >
-                          {""}
-                        </h3>
-                      }
-                      <React.Fragment>{""}</React.Fragment>
-                    </React.Fragment>
-                  </h4>
-                }
-                <React.Fragment>{""}</React.Fragment>
-              </React.Fragment>
-            </div>
+              {
+                "Our merchandise is designed to be worn proudly and to shout loudly to the world about what you love!  With this 100% hemp Fast Buds cap, you can show that you only grow the best."
+              }
+            </p>
             <ProductCollection
               data-plasmic-name={"productCollection"}
               data-plasmic-override={overrides.productCollection}
@@ -964,8 +926,7 @@ const PlasmicDescendants = {
     "header",
     "hero",
     "h1",
-    "h4",
-    "h3",
+    "p",
     "productCollection",
     "productTextField",
     "productMedia",
@@ -977,16 +938,14 @@ const PlasmicDescendants = {
   hero: [
     "hero",
     "h1",
-    "h4",
-    "h3",
+    "p",
     "productCollection",
     "productTextField",
     "productMedia",
     "addToCartButton"
   ],
   h1: ["h1"],
-  h4: ["h4", "h3"],
-  h3: ["h3"],
+  p: ["p"],
   productCollection: [
     "productCollection",
     "productTextField",
@@ -1007,8 +966,7 @@ type NodeDefaultElementType = {
   header: "header";
   hero: "section";
   h1: "h1";
-  h4: "h4";
-  h3: "h3";
+  p: "p";
   productCollection: typeof ProductCollection;
   productTextField: typeof ProductTextField;
   productMedia: typeof ProductMedia;
@@ -1080,8 +1038,7 @@ export const PlasmicHomepage = Object.assign(
     header: makeNodeComponent("header"),
     hero: makeNodeComponent("hero"),
     h1: makeNodeComponent("h1"),
-    h4: makeNodeComponent("h4"),
-    h3: makeNodeComponent("h3"),
+    p: makeNodeComponent("p"),
     productCollection: makeNodeComponent("productCollection"),
     productTextField: makeNodeComponent("productTextField"),
     productMedia: makeNodeComponent("productMedia"),
