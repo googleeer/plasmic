@@ -410,14 +410,13 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__r7Hkk {
-    left: 175px;
-    top: auto;
+    left: auto;
+    top: 0px;
     z-index: 1;
-    position: absolute;
+    position: sticky;
     height: 1em;
-    bottom: 64px;
     width: 1em;
-    right: auto;
+    min-width: 61px;
     flex-shrink: 0;
   }
 }

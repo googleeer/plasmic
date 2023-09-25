@@ -365,6 +365,23 @@ function PlasmicHomepage__RenderFunc(props: {
                 </Button2>
                 <ShoppingCart02SvgrepoComsvgIcon
                   className={classNames(projectcss.all, sty.svg__r7Hkk)}
+                  onClick={async event => {
+                    const $steps = {};
+                    $steps["goTo"] = true
+                      ? (() => {
+                          const actionArgs = { destination: "/" };
+                          return (({ destination }) => {
+                            __nextRouter?.push(destination);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      typeof $steps["goTo"] === "object" &&
+                      typeof $steps["goTo"].then === "function"
+                    ) {
+                      $steps["goTo"] = await $steps["goTo"];
+                    }
+                  }}
                   role={"img"}
                 />
               </div>
