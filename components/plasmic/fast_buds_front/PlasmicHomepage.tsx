@@ -38,8 +38,8 @@ import {
 } from "@plasmicapp/react-web";
 import Button2 from "../../Button2"; // plasmic-import: ozOApxgSHvpK/component
 import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
-import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
 import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
+import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
 import { AddToCartButton } from "@plasmicpkgs/commerce"; // plasmic-import: NR7KYUJmEqx/codeComponent
 
 import { useScreenVariants as useScreenVariantsmYkAi1HuWOp9 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: MYkAi1huWOp9/globalVariant
@@ -51,6 +51,7 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: Hl--hrC1NsQO/
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: LzP5VeWmLtRd/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: TlLaNAw8n1kO/icon
+import ShoppingCart02SvgrepoComsvgIcon from "./icons/PlasmicIcon__ShoppingCart02SvgrepoComsvg"; // plasmic-import: SCXVTM_TJFJW/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: ZT2Cje1C1JYo/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: OW7cAzPo7StY/icon
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: aRlRgl7fc4At/icon
@@ -73,8 +74,8 @@ export type PlasmicHomepage__OverridesType = {
   h1?: p.Flex<"h1">;
   p?: p.Flex<"p">;
   productCollection?: p.Flex<typeof ProductCollection>;
-  productTextField?: p.Flex<typeof ProductTextField>;
   productMedia?: p.Flex<typeof ProductMedia>;
+  productTextField?: p.Flex<typeof ProductTextField>;
   addToCartButton?: p.Flex<typeof AddToCartButton>;
   footer?: p.Flex<"footer">;
   columns?: p.Flex<"div">;
@@ -108,6 +109,8 @@ function PlasmicHomepage__RenderFunc(props: {
   const $ctx = ph.useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = ph.useGlobalActions?.();
 
   const currentUser = p.useCurrentUser?.() || {};
 
@@ -360,6 +363,10 @@ function PlasmicHomepage__RenderFunc(props: {
                     {"Log in"}
                   </div>
                 </Button2>
+                <ShoppingCart02SvgrepoComsvgIcon
+                  className={classNames(projectcss.all, sty.svg__r7Hkk)}
+                  role={"img"}
+                />
               </div>
             </p.Stack>
           </p.Stack>
@@ -432,9 +439,20 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               <ph.DataCtxReader>
                 {$ctx => (
-                  <div
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox___786Co)}
+                    onMouseEnter={async event => {
+                      const $steps = {};
+                    }}
                   >
+                    <ProductMedia
+                      data-plasmic-name={"productMedia"}
+                      data-plasmic-override={overrides.productMedia}
+                      className={classNames("__wab_instance", sty.productMedia)}
+                    />
+
                     <ProductTextField
                       data-plasmic-name={"productTextField"}
                       data-plasmic-override={overrides.productTextField}
@@ -443,12 +461,6 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.productTextField
                       )}
                       field={"name"}
-                    />
-
-                    <ProductMedia
-                      data-plasmic-name={"productMedia"}
-                      data-plasmic-override={overrides.productMedia}
-                      className={classNames("__wab_instance", sty.productMedia)}
                     />
 
                     <AddToCartButton
@@ -466,11 +478,46 @@ function PlasmicHomepage__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.button__wBPrY
                         )}
+                        onClick={async event => {
+                          const $steps = {};
+                          $steps["addItemToCart"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  productId: (() => {
+                                    try {
+                                      return $ctx.currentProduct.slug;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  quantity: 1
+                                };
+                                return $globalActions[
+                                  "plasmic-commerce-shopify-provider.addItem"
+                                ]?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["addItemToCart"] === "object" &&
+                            typeof $steps["addItemToCart"].then === "function"
+                          ) {
+                            $steps["addItemToCart"] = await $steps[
+                              "addItemToCart"
+                            ];
+                          }
+                        }}
                       >
                         {"Add To Cart"}
                       </button>
                     </AddToCartButton>
-                  </div>
+                  </p.Stack>
                 )}
               </ph.DataCtxReader>
             </ProductCollection>
@@ -928,8 +975,8 @@ const PlasmicDescendants = {
     "h1",
     "p",
     "productCollection",
-    "productTextField",
     "productMedia",
+    "productTextField",
     "addToCartButton",
     "footer",
     "columns"
@@ -940,20 +987,20 @@ const PlasmicDescendants = {
     "h1",
     "p",
     "productCollection",
-    "productTextField",
     "productMedia",
+    "productTextField",
     "addToCartButton"
   ],
   h1: ["h1"],
   p: ["p"],
   productCollection: [
     "productCollection",
-    "productTextField",
     "productMedia",
+    "productTextField",
     "addToCartButton"
   ],
-  productTextField: ["productTextField"],
   productMedia: ["productMedia"],
+  productTextField: ["productTextField"],
   addToCartButton: ["addToCartButton"],
   footer: ["footer", "columns"],
   columns: ["columns"]
@@ -968,8 +1015,8 @@ type NodeDefaultElementType = {
   h1: "h1";
   p: "p";
   productCollection: typeof ProductCollection;
-  productTextField: typeof ProductTextField;
   productMedia: typeof ProductMedia;
+  productTextField: typeof ProductTextField;
   addToCartButton: typeof AddToCartButton;
   footer: "footer";
   columns: "div";
@@ -1040,8 +1087,8 @@ export const PlasmicHomepage = Object.assign(
     h1: makeNodeComponent("h1"),
     p: makeNodeComponent("p"),
     productCollection: makeNodeComponent("productCollection"),
-    productTextField: makeNodeComponent("productTextField"),
     productMedia: makeNodeComponent("productMedia"),
+    productTextField: makeNodeComponent("productTextField"),
     addToCartButton: makeNodeComponent("addToCartButton"),
     footer: makeNodeComponent("footer"),
     columns: makeNodeComponent("columns"),
